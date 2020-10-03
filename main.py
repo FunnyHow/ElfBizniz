@@ -37,7 +37,7 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
 
         # setup player
-        image_source = ":resources:images/timmy_idle.png"
+        image_source = "images/timmy_idle.png"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCLAING)
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 128
