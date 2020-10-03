@@ -63,6 +63,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
         # Code to draw the screen goes here
 
+        self.wall_list.draw()
         self.player_list.draw()
 
     def on_key_press(self, key: int, modifiers: int):
