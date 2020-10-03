@@ -59,7 +59,8 @@ class MyGame(arcade.Window):
 
         # walls
         for x in range(0, 1000, 64):
-            wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
+            #wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
+            wall = arcade.Sprite(":resources:images/tiles/grassMid.png", TILE_SCALING)
             wall.center_x = x
             wall.center_y = 32
             self.wall_list.append(wall)
