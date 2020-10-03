@@ -32,6 +32,8 @@ class MyGame(arcade.Window):
         self.player_sprite = None
         self.physics_engine = None
 
+        self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
+
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
@@ -73,6 +75,8 @@ class MyGame(arcade.Window):
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+        elif key == arcade.key.E:
+            arcade.play_sound(self.eugh_sound)
 
     def on_key_release(self, key: int, modifiers: int):
         """key handler"""
