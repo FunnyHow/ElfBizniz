@@ -2,6 +2,7 @@
 Platformer Game
 """
 import arcade
+import random
 
 # Constants
 SCREEN_WIDTH = 1000
@@ -33,6 +34,12 @@ class MyGame(arcade.Window):
         self.physics_engine = None
 
         self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
+        self.shutup_sound_one = arcade.load_sound("sounds/shutup1.wav")
+        self.shutup_sound_two = arcade.load_sound("sounds/shutup2.wav")
+
+        # sound list
+        self.shutup_list = [self.shutup_sound_one, self.shutup_sound_two]
+
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -78,6 +85,8 @@ class MyGame(arcade.Window):
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.E:
             arcade.play_sound(self.eugh_sound)
+        elif key == arcade.key.P:
+            arcade.play_sound(random.choice(self.shutup_list))
 
     def on_key_release(self, key: int, modifiers: int):
         """key handler"""
