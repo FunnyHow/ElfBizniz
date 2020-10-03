@@ -12,7 +12,9 @@ SCREEN_TITLE = "Elf Bizniz!"
 CHARACTER_SCALING = 1
 TILE_SCALING = 0.5
 COIN_SCALING = 0.5
+GRAVITY = 1
 PLAYER_MOVEMENT_SPEED = 5
+PLAYER_JUMP_SPEED = 20
 
 
 class MyGame(arcade.Window):
@@ -57,12 +59,12 @@ class MyGame(arcade.Window):
 
         # walls
         for x in range(0, 1000, 64):
-            wall = arcade.Sprite(":resources:images/tiles/grassMid.png", TILE_SCALING)
+            wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
             wall.center_x = x
             wall.center_y = 32
             self.wall_list.append(wall)
 
-        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list)
+        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, GRAVITY)
 
     def on_draw(self):
         """ Render the screen. """
@@ -76,7 +78,8 @@ class MyGame(arcade.Window):
     def on_key_press(self, key: int, modifiers: int):
         """key handler"""
         if key == arcade.key.UP or key == arcade.key.W:
-            self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
+            if self.physics_engine.can_jump():
+                self.player_sprite.change_y = PLAYER_JUMP_SPEED
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.LEFT or key == arcade.key.A:
