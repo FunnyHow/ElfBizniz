@@ -12,9 +12,11 @@ SCREEN_TITLE = "Elf Bizniz!"
 CHARACTER_SCALING = 1
 TILE_SCALING = 0.5
 COIN_SCALING = 0.5
+
 GRAVITY = 1
 PLAYER_MOVEMENT_SPEED = 5
 PLAYER_JUMP_SPEED = 20
+COIN_COUNT = 10
 
 
 class MyGame(arcade.Window):
@@ -38,10 +40,10 @@ class MyGame(arcade.Window):
         self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
         self.shutup_sound_one = arcade.load_sound("sounds/shutup1.wav")
         self.shutup_sound_two = arcade.load_sound("sounds/shutup2.wav")
+        self.coin_collect_sfx = arcade.load_sound(":resources:sounds/coin1.wav")
 
         # sound list
         self.shutup_list = [self.shutup_sound_one, self.shutup_sound_two]
-
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -49,6 +51,7 @@ class MyGame(arcade.Window):
         """ Set up the game here. Call this function to restart the game. """
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
+        self.coin_list = arcade.SpriteList()
 
         # setup player
         image_source = "images/timmy_idle.png"
@@ -59,11 +62,18 @@ class MyGame(arcade.Window):
 
         # walls
         for x in range(0, 1000, 64):
-            #wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
+            # wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
             wall = arcade.Sprite(":resources:images/tiles/grassMid.png", TILE_SCALING)
             wall.center_x = x
             wall.center_y = 32
             self.wall_list.append(wall)
+
+        # create coins
+        for i in range(COIN_COUNT):
+            coin = arcade.Sprite(":resources:images/items/coinGold.png", COIN_SCALING)
+            coin.center_x = random.randrange(SCREEN_WIDTH)
+            coin.center_y = random.randrange(SCREEN_HEIGHT)
+            self.coin_list.append(coin)
 
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, GRAVITY)
 
@@ -73,6 +83,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
         # Code to draw the screen goes here
 
+        self.coin_list.draw()
         self.wall_list.draw()
         self.player_list.draw()
 
@@ -108,6 +119,15 @@ class MyGame(arcade.Window):
 
         # move player with physics!
         self.physics_engine.update()
+
+        # coin hit check
+        coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.coin_list)
+
+        # remove collected coins
+        for coin in coin_hit_list:
+            coin.remove_from_sprite_lists()
+            arcade.play_sound(self.coin_collect_sfx)
+
 
 
 def main():
