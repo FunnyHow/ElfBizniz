@@ -41,6 +41,8 @@ class MyGame(arcade.Window):
         self.wall_list = None
         self.player_list = None
         self.background_list = None
+        self.key_list = None
+        self.enemies_list = None
 
         # holder for player sprite
         self.player_sprite = None
@@ -70,6 +72,8 @@ class MyGame(arcade.Window):
         self.wall_list = arcade.SpriteList()
         self.coin_list = arcade.SpriteList()
         self.background_list = arcade.SpriteList()
+        self.key_list = arcade.SpriteList()
+        self.enemies_list = arcade.SpriteList()
 
         # setup player
         image_source = "images/timmy_idle.png"
@@ -81,14 +85,22 @@ class MyGame(arcade.Window):
         # load map from file
         map_name = "maps/level_1.tmx"
 
-        # layers
+        # map and layers
         the_map = arcade.read_tmx(map_name)
         platform_layer = "platforms"
+        coins_layer = "coins"
+        keys_layer = "keys"
+        enemies_layer = "enemies"
         self.wall_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=platform_layer,
                                                       scaling=TILE_SCALING, use_spatial_hash=True)
 
-        coins_layer = "coins"
-        self.coin_list= arcade.tilemap.process_layer(map_object=the_map, layer_name=coins_layer,
+        self.coin_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=coins_layer,
+                                                      scaling=TILE_SCALING, use_spatial_hash=True)
+
+        self.key_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=keys_layer,
+                                                      scaling=TILE_SCALING, use_spatial_hash=True)
+
+        self.enemies_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=enemies_layer,
                                                       scaling=TILE_SCALING, use_spatial_hash=True)
 
         # -- Background objects
@@ -108,6 +120,8 @@ class MyGame(arcade.Window):
 
         self.background_list.draw()
         self.coin_list.draw()
+        self.key_list.draw()
+        self.enemies_list.draw()
         self.wall_list.draw()
         self.player_list.draw()
 
