@@ -1,0 +1,55 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/level_1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 0.15842848557692307,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2742.5623518255097,
+                "y": 1839.9468942626838
+            }
+        },
+        "map.tmx#base_tiles": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "maps/level_1.tmx": {
+            "scale": 0.19296875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2308.663967611336,
+                "y": 1404.3724696356278
+            }
+        },
+        "maps/level_1.tmx#base_tiles": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        }
+    },
+    "map.height": 20,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 128,
+    "map.tileWidth": 128,
+    "map.width": 25,
+    "openFiles": [
+        "maps/level_1.tmx"
+    ],
+    "project": "level_1.tiled-project",
+    "recentFiles": [
+        "maps/level_1.tmx",
+        "map.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.type": 1
+}
