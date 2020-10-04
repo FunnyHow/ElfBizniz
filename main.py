@@ -43,10 +43,12 @@ class MyGame(arcade.Window):
         self.background_list = None
         self.key_list = None
         self.enemies_list = None
+        self.boss_list = None
 
         # holder for player sprite
         self.player_sprite = None
         self.physics_engine = None
+        self.boss_sprite = None
 
         # track scrolling
         self.view_bottom = 0
@@ -74,6 +76,7 @@ class MyGame(arcade.Window):
         self.background_list = arcade.SpriteList()
         self.key_list = arcade.SpriteList()
         self.enemies_list = arcade.SpriteList()
+        self.boss_list = arcade.SpriteList()
 
         # setup player
         image_source = "images/timmy_idle.png"
@@ -81,6 +84,12 @@ class MyGame(arcade.Window):
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 128
         self.player_list.append(self.player_sprite)
+
+        # setup bertwam
+        self.boss_sprite = arcade.Sprite("images/bertwam_idle.png", CHARACTER_SCALING)
+        self.boss_sprite.center_x = 64
+        self.boss_sprite.center_y = 128
+        self.boss_list.append(self.boss_sprite)
 
         # load map from file
         map_name = "maps/level_1.tmx"
@@ -124,6 +133,7 @@ class MyGame(arcade.Window):
         self.enemies_list.draw()
         self.wall_list.draw()
         self.player_list.draw()
+        self.boss_list.draw()
 
     def on_key_press(self, key: int, modifiers: int):
         """key handler"""
