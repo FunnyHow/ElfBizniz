@@ -18,7 +18,6 @@ GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * TILE_SCALING)
 GRAVITY = 1
 PLAYER_MOVEMENT_SPEED = 5
 PLAYER_JUMP_SPEED = 20
-COIN_COUNT = 10
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.
@@ -41,6 +40,7 @@ class MyGame(arcade.Window):
         self.coin_list = None
         self.wall_list = None
         self.player_list = None
+        self.background_list = None
 
         # holder for player sprite
         self.player_sprite = None
@@ -69,6 +69,7 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
         self.coin_list = arcade.SpriteList()
+        self.background_list = arcade.SpriteList()
 
         # setup player
         image_source = "images/timmy_idle.png"
@@ -81,17 +82,17 @@ class MyGame(arcade.Window):
         map_name = "maps/level_1.tmx"
 
         # layers
-        platform_layer = "platforms"
         the_map = arcade.read_tmx(map_name)
+        platform_layer = "platforms"
         self.wall_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=platform_layer,
                                                       scaling=TILE_SCALING, use_spatial_hash=True)
 
-        # create coins
-        for i in range(COIN_COUNT):
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", COIN_SCALING)
-            coin.center_x = random.randrange(SCREEN_WIDTH)
-            coin.center_y = random.randrange(SCREEN_HEIGHT)
-            self.coin_list.append(coin)
+        coins_layer = "coins"
+        self.coin_list= arcade.tilemap.process_layer(map_object=the_map, layer_name=coins_layer,
+                                                      scaling=TILE_SCALING, use_spatial_hash=True)
+
+        # -- Background objects
+        self.background_list = arcade.tilemap.process_layer(the_map, "background", TILE_SCALING)
 
         # environmental stuffs
         if the_map.background_color:
@@ -105,6 +106,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
         # Code to draw the screen goes here
 
+        self.background_list.draw()
         self.coin_list.draw()
         self.wall_list.draw()
         self.player_list.draw()
