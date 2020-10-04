@@ -12,6 +12,8 @@ SCREEN_TITLE = "Elf Bizniz!"
 CHARACTER_SCALING = 1
 TILE_SCALING = 0.5
 COIN_SCALING = 0.5
+SPRITE_PIXEL_SIZE = 128
+GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * TILE_SCALING)
 
 GRAVITY = 1
 PLAYER_MOVEMENT_SPEED = 5
@@ -60,13 +62,14 @@ class MyGame(arcade.Window):
         self.player_sprite.center_y = 128
         self.player_list.append(self.player_sprite)
 
-        # walls
-        for x in range(0, 1000, 64):
-            # wall = arcade.Sprite("images/tiles/green+grass-128x128.png", TILE_SCALING)
-            wall = arcade.Sprite(":resources:images/tiles/grassMid.png", TILE_SCALING)
-            wall.center_x = x
-            wall.center_y = 32
-            self.wall_list.append(wall)
+        # load map from file
+        map_name = "maps/level_1.tmx"
+
+        # layers
+        platform_layer = "platforms"
+        the_map = arcade.read_tmx(map_name)
+        self.wall_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=platform_layer,
+                                                      scaling=TILE_SCALING, use_spatial_hash=True)
 
         # create coins
         for i in range(COIN_COUNT):
@@ -74,6 +77,10 @@ class MyGame(arcade.Window):
             coin.center_x = random.randrange(SCREEN_WIDTH)
             coin.center_y = random.randrange(SCREEN_HEIGHT)
             self.coin_list.append(coin)
+
+        # environmental stuffs
+        if the_map.background_color:
+            arcade.set_background_color(the_map.background_color)
 
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite, self.wall_list, GRAVITY)
 
@@ -127,7 +134,6 @@ class MyGame(arcade.Window):
         for coin in coin_hit_list:
             coin.remove_from_sprite_lists()
             arcade.play_sound(self.coin_collect_sfx)
-
 
 
 def main():
