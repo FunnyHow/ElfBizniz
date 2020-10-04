@@ -34,6 +34,9 @@
         "maps/level_1.tmx#base_tiles": {
             "dynamicWrapping": true,
             "scaleInDock": 1
+        },
+        "maps/level_1.tmx#stuff": {
+            "dynamicWrapping": true
         }
     },
     "map.height": 20,

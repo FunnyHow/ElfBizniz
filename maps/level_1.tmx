@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="128" tileheight="128" infinite="0" nextlayerid="7" nextobjectid="2">
  <tileset firstgid="1" name="base_tiles" tilewidth="128" tileheight="128" tilecount="145" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="145">
@@ -438,9 +438,155 @@
    <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/tiles/waterTop_low.png"/>
   </tile>
  </tileset>
- <layer id="1" name="platforms" width="36" height="20">
+ <tileset firstgid="291" name="stuff" tilewidth="128" tileheight="128" tilecount="21" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/coinBronze.png"/>
+  </tile>
+  <tile id="1">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/coinGold.png"/>
+  </tile>
+  <tile id="2">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/coinSilver.png"/>
+  </tile>
+  <tile id="3">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagGreen_down.png"/>
+  </tile>
+  <tile id="4">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagGreen1.png"/>
+  </tile>
+  <tile id="5">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagGreen2.png"/>
+  </tile>
+  <tile id="6">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagRed_down.png"/>
+  </tile>
+  <tile id="7">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagRed1.png"/>
+  </tile>
+  <tile id="8">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagRed2.png"/>
+  </tile>
+  <tile id="9">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagYellow_down.png"/>
+  </tile>
+  <tile id="10">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagYellow1.png"/>
+  </tile>
+  <tile id="11">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/flagYellow2.png"/>
+  </tile>
+  <tile id="12">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/gemBlue.png"/>
+  </tile>
+  <tile id="13">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/gemGreen.png"/>
+  </tile>
+  <tile id="14">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/gemRed.png"/>
+  </tile>
+  <tile id="15">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/gemYellow.png"/>
+  </tile>
+  <tile id="16">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/keyBlue.png"/>
+  </tile>
+  <tile id="17">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/keyGreen.png"/>
+  </tile>
+  <tile id="18">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/keyRed.png"/>
+  </tile>
+  <tile id="19">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/keyYellow.png"/>
+  </tile>
+  <tile id="20">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/items/star.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="312" name="npcs" tilewidth="128" tileheight="128" tilecount="19" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/bee.png"/>
+  </tile>
+  <tile id="1">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/fishGreen.png"/>
+  </tile>
+  <tile id="2">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/fishPink.png"/>
+  </tile>
+  <tile id="3">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/fly.png"/>
+  </tile>
+  <tile id="4">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/frog.png"/>
+  </tile>
+  <tile id="5">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/frog_move.png"/>
+  </tile>
+  <tile id="6">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/ladybug.png"/>
+  </tile>
+  <tile id="7">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/mouse.png"/>
+  </tile>
+  <tile id="8">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/saw.png"/>
+  </tile>
+  <tile id="9">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/sawHalf.png"/>
+  </tile>
+  <tile id="10">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/slimeBlock.png"/>
+  </tile>
+  <tile id="11">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/slimeBlue.png"/>
+  </tile>
+  <tile id="12">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/slimeBlue_move.png"/>
+  </tile>
+  <tile id="13">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/slimeGreen.png"/>
+  </tile>
+  <tile id="14">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/slimePurple.png"/>
+  </tile>
+  <tile id="15">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/wormGreen.png"/>
+  </tile>
+  <tile id="16">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/wormGreen_dead.png"/>
+  </tile>
+  <tile id="17">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/wormGreen_move.png"/>
+  </tile>
+  <tile id="18">
+   <image width="128" height="128" source="../../../Desktop/platform_tutorial/platform_tutorial/images/enemies/wormPink.png"/>
+  </tile>
+ </tileset>
+ <layer id="1" name="platforms" width="36" height="20" locked="1">
   <data encoding="base64" compression="zlib">
-   eJzVlNEKwCAIRf3/n4le95L7szEokCi1LKkDl0Fou7u2IviASsXD/LT0kn1CfqaJ3lEi+OWjgfMTOus78cxHO+9ZP3T/+sykzrqElM9D5MFN57nmzx4N0syu5Sfl3iKpfyXWed3gp+TbAoGfn+RH0z+CVL8iHwT+vNJ7qvcuTY3Wz8r6mXykb+HuZilP6/+xIx8LO/zgYfoAZiCLoA==
+   eJzVlN0KgCAMhff+z9ArlEh0U4H2ZhV0IeF+nDrqwAhkrs+zqQcbRWF4I55BGDnGI6njnm9Acqm9Gl4rfzhNQPM4ZL2XRrD1R9pvLU9a/z0zAVnn5Bme9Yrtir2wrlYcj7VKeGaQv2m5kPQux0PNRW5/S9X26w889x3A5j8C7T3Hw/Wu9Cxcfgt/ItCzlp4J+5ckR8rTMl/jzwL0Wai3mfOz9n708KdGPXjix+IE+yCLzg==
+  </data>
+ </layer>
+ <layer id="2" name="background" width="36" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjaYAMePAqGD/hMBztmEZCnRZoaTaekA3rnd0LpYhQMfjCY89nXgXbAEAAzCciP5lHaA1A6hcUDjCamLCZUPg9EvUstAAC+1hhB
+  </data>
+ </layer>
+ <layer id="4" name="coins" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhaQIVxoF0wCkbBKBhKgJIyY7S8GQX0BtRIcyMp3RLy60gKC3qA0fBEAABAFwEp
+  </data>
+ </layer>
+ <layer id="5" name="keys" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6CZyf7dLOCvByQgAQCAf7quB7sBKh8ANQ==
+  </data>
+ </layer>
+ <layer id="6" name="enemies" width="36" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6AZzf6lbOCrByQgAWDTdT0A4JMBnX4AQw==
   </data>
  </layer>
 </map>
