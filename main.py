@@ -9,7 +9,7 @@ SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Elf Bizniz!"
 
-CHARACTER_SCALING = 1
+CHARACTER_SCALING = 0.75
 TILE_SCALING = 0.5
 COIN_SCALING = 0.5
 SPRITE_PIXEL_SIZE = 128
@@ -19,6 +19,13 @@ GRAVITY = 1
 PLAYER_MOVEMENT_SPEED = 5
 PLAYER_JUMP_SPEED = 20
 COIN_COUNT = 10
+
+# How many pixels to keep as a minimum margin between the character
+# and the edge of the screen.
+LEFT_VIEWPORT_MARGIN = 250
+RIGHT_VIEWPORT_MARGIN = 250
+BOTTOM_VIEWPORT_MARGIN = 100
+TOP_VIEWPORT_MARGIN = 100
 
 
 class MyGame(arcade.Window):
@@ -39,6 +46,10 @@ class MyGame(arcade.Window):
         self.player_sprite = None
         self.physics_engine = None
 
+        # track scrolling
+        self.view_bottom = 0
+        self.view_left = 0
+
         self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
         self.shutup_sound_one = arcade.load_sound("sounds/shutup1.wav")
         self.shutup_sound_two = arcade.load_sound("sounds/shutup2.wav")
@@ -51,6 +62,10 @@ class MyGame(arcade.Window):
 
     def setup(self):
         """ Set up the game here. Call this function to restart the game. """
+        # track scrolling
+        self.view_bottom = 0
+        self.view_left = 0
+
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
         self.coin_list = arcade.SpriteList()
@@ -134,6 +149,39 @@ class MyGame(arcade.Window):
         for coin in coin_hit_list:
             coin.remove_from_sprite_lists()
             arcade.play_sound(self.coin_collect_sfx)
+
+        # handle scrolling
+        changed = False
+
+        # scroll left
+        left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
+        if self.player_sprite.left < left_boundary:
+            self.view_left -= left_boundary - self.player_sprite.left
+            changed = True
+
+        # scroll right
+        right_boundary = self.view_left + SCREEN_WIDTH - RIGHT_VIEWPORT_MARGIN
+        if self.player_sprite.right > right_boundary:
+            self.view_left += self.player_sprite.right - right_boundary
+            changed = True
+
+        # scroll up
+        top_boundary = self.view_bottom + SCREEN_HEIGHT - TOP_VIEWPORT_MARGIN
+        if self.player_sprite.top > top_boundary:
+            self.view_bottom += self.player_sprite.top - top_boundary
+            changed = True
+
+        # scroll down
+        bottom_boundary = self.view_bottom + BOTTOM_VIEWPORT_MARGIN
+        if self.player_sprite.bottom < bottom_boundary:
+            self.view_bottom -= bottom_boundary - self.player_sprite.bottom
+            changed = True
+
+        if changed:
+            self.view_bottom = int(self.view_bottom)
+            self.view_left = int(self.view_left)
+            arcade.set_viewport(self.view_left, SCREEN_WIDTH + self.view_left, self.view_bottom,
+                                SCREEN_HEIGHT + self.view_bottom)
 
 
 def main():
