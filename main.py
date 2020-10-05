@@ -56,12 +56,14 @@ class MyGame(arcade.Window):
 
         # score
         self.score = 0
+        self.keys = 0
 
         # sfx
         self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
         self.shutup_sound_one = arcade.load_sound("sounds/shutup1.wav")
         self.shutup_sound_two = arcade.load_sound("sounds/shutup2.wav")
         self.coin_collect_sfx = arcade.load_sound(":resources:sounds/coin1.wav")
+        self.key_collect_sfx = arcade.load_sound(":resources:sounds/coin2.wav")
 
         # sound list
         self.shutup_list = [self.shutup_sound_one, self.shutup_sound_two]
@@ -72,6 +74,7 @@ class MyGame(arcade.Window):
         """ Set up the game here. Call this function to restart the game. """
         # score
         self.score = 0
+        self.keys = 0
 
         # track scrolling
         self.view_bottom = 0
@@ -143,7 +146,7 @@ class MyGame(arcade.Window):
         self.boss_list.draw()
 
         # Draw our score on the screen, scrolling it with the viewport
-        score_text = f"Elf dollahs: {self.score}"
+        score_text = f"Elf dollahs: {self.score} Keys: {self.keys}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.BLACK, 18)
 
@@ -188,6 +191,15 @@ class MyGame(arcade.Window):
             coin.remove_from_sprite_lists()
             arcade.play_sound(self.coin_collect_sfx)
             self.score += 1
+
+        # key hit check
+        key_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.key_list)
+
+        # remove collected key
+        for key in key_hit_list:
+            key.remove_from_sprite_lists()
+            arcade.play_sound(self.key_collect_sfx)
+            self.keys += 1
 
         # handle scrolling
         changed = False
