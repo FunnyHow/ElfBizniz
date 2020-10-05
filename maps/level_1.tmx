@@ -444,6 +444,9 @@
    <image width="128" height="128" source="../images/items/coinBronze.png"/>
   </tile>
   <tile id="1">
+   <properties>
+    <property name="Points" type="int" value="15"/>
+   </properties>
    <image width="128" height="128" source="../images/items/coinGold.png"/>
   </tile>
   <tile id="2">
@@ -564,17 +567,20 @@
    <image width="128" height="128" source="../images/enemies/wormPink.png"/>
   </tile>
  </tileset>
- <layer id="1" name="platforms" width="36" height="20" locked="1">
+ <layer id="1" name="platforms" width="36" height="20">
   <data encoding="base64" compression="zlib">
    eJzVlN0KgCAMhff+z9ArlEh0U4H2ZhV0IeF+nDrqwAhkrs+zqQcbRWF4I55BGDnGI6njnm9Acqm9Gl4rfzhNQPM4ZL2XRrD1R9pvLU9a/z0zAVnn5Bme9Yrtir2wrlYcj7VKeGaQv2m5kPQux0PNRW5/S9X26w889x3A5j8C7T3Hw/Wu9Cxcfgt/ItCzlp4J+5ckR8rTMl/jzwL0Wai3mfOz9n708KdGPXjix+IE+yCLzg==
   </data>
  </layer>
- <layer id="2" name="background" width="36" height="20" locked="1">
+ <layer id="2" name="background" width="36" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBjaYAMePAqGD/hMBztmEZCnRZoaTaekA3rnd0LpYhQMfjCY89nXgXbAEAAzCciP5lHaA1A6hcUDjCamLCZUPg9EvUstAAC+1hhB
   </data>
  </layer>
  <layer id="4" name="coins" width="36" height="20">
+  <properties>
+   <property name="Points" type="int" value="10"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJxjYBhaQIVxoF0wCkbBKBhKgJIyY7S8GQX0BtRIcyMp3RLy60gKC3qA0fBEAABAFwEp
   </data>
