@@ -3,13 +3,49 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
             "scaleInEditor": 1
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx": {
+            "scale": 0.339921875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1600.3677315559644,
+                "y": 1281.1767409790853
+            }
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx#my_tiles": {
+            "scaleInDock": 1
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_1.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 2103.5,
+                "y": 628.75
+            }
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_1.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_2.tmx": {
+            "scale": 0.232861328125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2563.757601174251,
+                "y": 964.0931012790941
+            }
+        },
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_2.tmx#tiles": {
+            "scaleInDock": 1
         },
         "map.tmx": {
             "scale": 0.15842848557692307,
@@ -51,11 +87,16 @@
     "map.tileWidth": 128,
     "map.width": 25,
     "openFiles": [
-        "maps/level_1.tmx"
+        "maps/level_1.tmx",
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx"
     ],
     "project": "level_1.tiled-project",
+    "property.type": "int",
     "recentFiles": [
         "maps/level_1.tmx",
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx",
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_2.tmx",
+        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map2_level_1.tmx",
         "map.tmx"
     ],
     "tileset.embedInMap": true,
