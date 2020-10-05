@@ -188,9 +188,16 @@ class MyGame(arcade.Window):
 
         # remove collected coins
         for coin in coin_hit_list:
+            # get coin cost
+            if 'Points' not in coin.properties:
+                print("Warning! no coin cost!")
+                print(coin)
+            else:
+                cost = int(coin.properties['Points'])
+                self.score += cost
+
             coin.remove_from_sprite_lists()
             arcade.play_sound(self.coin_collect_sfx)
-            self.score += 1
 
         # key hit check
         key_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.key_list)
