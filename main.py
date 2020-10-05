@@ -54,6 +54,10 @@ class MyGame(arcade.Window):
         self.view_bottom = 0
         self.view_left = 0
 
+        # score
+        self.score = 0
+
+        # sfx
         self.eugh_sound = arcade.load_sound("sounds/eugh.wav")
         self.shutup_sound_one = arcade.load_sound("sounds/shutup1.wav")
         self.shutup_sound_two = arcade.load_sound("sounds/shutup2.wav")
@@ -66,6 +70,9 @@ class MyGame(arcade.Window):
 
     def setup(self):
         """ Set up the game here. Call this function to restart the game. """
+        # score
+        self.score = 0
+
         # track scrolling
         self.view_bottom = 0
         self.view_left = 0
@@ -107,10 +114,10 @@ class MyGame(arcade.Window):
                                                       scaling=TILE_SCALING, use_spatial_hash=True)
 
         self.key_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=keys_layer,
-                                                      scaling=TILE_SCALING, use_spatial_hash=True)
+                                                     scaling=TILE_SCALING, use_spatial_hash=True)
 
         self.enemies_list = arcade.tilemap.process_layer(map_object=the_map, layer_name=enemies_layer,
-                                                      scaling=TILE_SCALING, use_spatial_hash=True)
+                                                         scaling=TILE_SCALING, use_spatial_hash=True)
 
         # -- Background objects
         self.background_list = arcade.tilemap.process_layer(the_map, "background", TILE_SCALING)
@@ -134,6 +141,11 @@ class MyGame(arcade.Window):
         self.wall_list.draw()
         self.player_list.draw()
         self.boss_list.draw()
+
+        # Draw our score on the screen, scrolling it with the viewport
+        score_text = f"Elf dollahs: {self.score}"
+        arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
+                         arcade.csscolor.BLACK, 18)
 
     def on_key_press(self, key: int, modifiers: int):
         """key handler"""
@@ -175,6 +187,7 @@ class MyGame(arcade.Window):
         for coin in coin_hit_list:
             coin.remove_from_sprite_lists()
             arcade.play_sound(self.coin_collect_sfx)
+            self.score += 1
 
         # handle scrolling
         changed = False
