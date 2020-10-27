@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx",
+    "activeFile": "maps/level_1.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -63,8 +63,8 @@
             "scale": 0.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 1332,
-                "y": 449
+                "x": 192,
+                "y": 617
             }
         },
         "maps/level_1.tmx#base_tiles": {
@@ -87,8 +87,7 @@
     "map.tileWidth": 128,
     "map.width": 25,
     "openFiles": [
-        "maps/level_1.tmx",
-        "C:/Users/lokid/Desktop/platform_tutorial/platform_tutorial/map.tmx"
+        "maps/level_1.tmx"
     ],
     "project": "level_1.tiled-project",
     "property.type": "int",
